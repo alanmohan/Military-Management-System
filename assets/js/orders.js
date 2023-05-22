@@ -25,7 +25,8 @@ function passOrder(url)
             success: function(response) {
                 if(response.status == 200) 
                 {
-                    alert("Order passed successfully");
+                    $('#confirm-order').val('Order passed!');
+                    $('#confirm-order').css('background-color', '#008000');
                     location.reload();
                 }
                 else if (response.status == 500)
