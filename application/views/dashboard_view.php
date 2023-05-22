@@ -126,13 +126,13 @@ else if ($_SESSION['user_info']['Rank_id'] == 5)
     <div class="div6 child"> 
       <div class="counter">
         <p class="count-heading">Total Soldiers</p>
-        <p class="count">2,38,450</p>
+        <p class="count">1220</p>
       </div>
     </div>
     <div class="div7 child"> 
       <div class="counter">
         <p class="count-heading">Deployed Soldiers</p>
-        <p class="count">1,18,744</p>
+        <p class="count"><?php echo $depcount; ?></p>
       </div>
     </div>
     <div class="div8 child"> 
