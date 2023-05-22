@@ -7,6 +7,41 @@ function passOrder(url)
     // change button value to processing and chnage color to grey
     $('#confirm-order').val('Processing...');
     $('#confirm-order').css('background-color', '#808080');
+    if ( $('#vehicles').is(':checked'))
+    {   
+        //Action is custom-order    
+        var fromUserId = $('#my-user-id').val();
+        var toUserId = $('#subordinate').val();
+        var order = $('#custom-order').val();
+        //make ajax call to send values to the server
+        $.ajax({
+            url : url+"custom-order",
+            type : "POST",
+            data : {
+                fromUserId : fromUserId,
+                toUserId : toUserId,
+                order : order
+            },
+            success: function(response) {
+                if(response.status == 200) 
+                {
+                    alert("Order passed successfully");
+                    location.reload();
+                }
+                else if (response.status == 500)
+                {
+                    alert("Order passing failed");
+                }
+            },
+            error: function() {
+                console.log("Error occurred during Ajax call");
+                alert("Order passing failed");
+            },
+            dataType: "json"
+        });
+        
+
+    }
     if(selectOption == "1")
     {
         // Action is promote
