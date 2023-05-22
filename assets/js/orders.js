@@ -42,7 +42,7 @@ function passOrder(url)
         
 
     }
-    if(selectOption == "1")
+    else if(selectOption == "1")
     {
         // Action is promote
         var id = $('#rank').val();
