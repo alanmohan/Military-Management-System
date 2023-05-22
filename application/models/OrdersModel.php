@@ -315,7 +315,7 @@ class OrdersModel extends CI_Model
     public function change_orders_status($data)
     {
         //function to change status of orders from 1 to 0
-        $sql = "UPDATE Orders SET Order_status = 0 WHERE Order_id in (?)";
+        $sql = "UPDATE Orders SET Order_status = 0 WHERE Order_id in ?";
         $query = $this->db->query($sql,$data);
         if($query)
             return true;
