@@ -112,4 +112,11 @@ class DashboardModel extends CI_Model {
         }
         return $sub;
     }
+    public function get_deployedcount()
+    {
+        $sql = "SELECT COUNT(User_id) AS count FROM Users WHERE Cur_status = 'Deployed' ";
+        $query = $this->db->query($sql);
+        $res = $query->row_array();
+        return $res['count'];
+    }
 }

@@ -14,6 +14,7 @@ class Dashboard extends CI_Controller
     {
         // $bat = $this->OperationModel->get_batallions();
         $this->load->model('DashboardModel');
+        $depcount = $this->DashboardModel->get_deployedcount();
         $res = $this->DashboardModel->get_subgroup($_SESSION['userid'],$_SESSION['user_info']['Rank_id'],$_SESSION['user_info']['post']);
         $ops = array();
         $in_orders = $this->OrdersModel->get_in_orders($_SESSION['userid']);
@@ -22,7 +23,7 @@ class Dashboard extends CI_Controller
             $ops = $this->OperationModel->get_operations_brig($_SESSION['userid']);
         else if ($_SESSION['user_info']['Rank_id'] == 2)
             $ops = $this->OperationModel->get_operations_bat($_SESSION['userid']);
-        $this->load->view("dashboard_view.php",array('sub_list' => $res,'ops' => $ops,'in_orders' => $in_orders,'out_orders' => $out_orders));
+        $this->load->view("dashboard_view.php",array('sub_list' => $res,'ops' => $ops,'in_orders' => $in_orders,'out_orders' => $out_orders, 'depcount' => $depcount));
     }
     public function profile()
     {
